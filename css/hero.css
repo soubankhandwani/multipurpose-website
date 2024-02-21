@@ -1,0 +1,129 @@
+/* Hero Section Start */
+
+/* Animations */
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+
+/* Main styles */
+.hero-section {
+  margin-top: .75rem;
+  color: #fff;
+  font: 400 16px/1.5 Poppins, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+  /* img size is 50x50 */
+  background: url("data:image/png;base64,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") repeat 0 0;
+  /* Opera 12+ */
+  animation: bg-scrolling-reverse 0.92s infinite;
+  animation-timing-function: linear;
+  min-height: 50vh;
+}
+
+.title-text {
+  font-size: 3.25rem;
+}
+
+.t2-text {
+  color: #eb6a1f;
+}
+
+.random-word {
+  display: inline-block;
+  /* text-transform: uppercase; */
+  color: #eb6a1f;
+  letter-spacing: 3px;
+  width: auto;
+  /* transition: all 1.25s; */
+  animation: slidedown 4s infinite;
+  -webkit-animation: slidedown 4s infinite;
+  -moz-animation: slidedown 4s infinite;
+}
+
+.sub-text-mobile {
+  display: none;
+}
+
+@keyframes slidedown {
+  0% {
+    opacity: 50;
+  }
+
+  5% {
+    opacity: 0;
+    transform: translateY(0.5em);
+  }
+
+  7% {
+    transform: translateY(-1em);
+  }
+
+  10% {
+    opacity: 0;
+  }
+
+  20% {
+    transform: translateY(0);
+    opacity: 100;
+  }
+}
+
+/* Hero Responsive Start */
+@media (max-width: 768px) {
+  .sub-text-desktop {
+    font-size: 22px !important;
+  }
+
+  .random-word {
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 425px) {
+
+  .title-text {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .random-word {
+    font-size: 20px;
+    animation: none;
+    letter-spacing: 0ch;
+  }
+
+  .sub-text-desktop {
+    display: none;
+  }
+
+  .sub-text-mobile {
+    display: block;
+  }
+}
+
+.hero-gradient {
+  background: -webkit-linear-gradient(91deg, #09009f, #00ff95 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text {
+  font-size: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Hero Responsive End */
+/* Hero Section End */
+
+.header-text {
+  border-bottom: 2px solid #ccc;
+}
