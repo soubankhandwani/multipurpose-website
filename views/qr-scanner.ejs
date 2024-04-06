@@ -2,14 +2,25 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags for character set and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the website -->
     <title>Multipurpose Website - Catering all purposes!</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="/style.css">
-
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/logo.webp">
+    <!-- Inline CSS for body background -->
+    <style>
+        body {
+            background-color: #a399b2;
+            background-image: linear-gradient(147deg, #a399b2 0%, #4d4855 74%);
+        }
+    </style>
 </head>
 
 <body>
@@ -25,8 +36,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                    <!-- Navbar Links -->
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                        <a class="nav-link" aria-current="page" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/img-to-pdf">Image-PDF</a>
@@ -45,13 +57,28 @@
                     </li>
                 </ul>
             </div>
+            <!-- Logout Button -->
+            <div class="d-flex">
+                <a href="/logout" class="btn btn-dark me-2 align-self-center">Logout</a>
+            </div>
         </div>
     </nav>
     <!-- Navbar End -->
-    <div class="container">
-        <div id="reader" style="width: 300px; height: 300px;"></div>
-    </div>
 
+    <!-- Main Start -->
+    <div class="container container-page-height d-flex align-items-center justify-content-center flex-column">
+        <div class="header">
+            <!-- Page Title -->
+            <h1 class="text-white fw-bold mt-5 mb-3">QR Code Scanner</h1>
+        </div>
+        <!-- QR Code Scanner Container -->
+        <div class="card d-flex align-items-center justify-content-center flex-column p-5">
+            <div id="reader" style="width: 300px; height: 220px;"></div>
+        </div>
+    </div>
+    <!-- Main End -->
+
+    <!-- Bootstrap JS and Popper JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
@@ -59,26 +86,32 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
 
+    <!-- HTML5 QR Code Library -->
     <script src="https://unpkg.com/html5-qrcode"></script>
+    <!-- QR Code Decoder -->
     <script src="https://rawgit.com/sitepoint-editors/jsqrcode/master/src/qr_packed.js"></script>
     <script>
+        // Initialize HTML5 QR Code scanner
         const html5QrCode = new Html5Qrcode("reader");
 
+        // Function to handle successful QR code scan
         function onScanSuccess(qrCodeMessage) {
-            // Handle the scanned QR code message as needed
+            // Handle the scanned QR code message as needed (e.g., display or process it)
             alert(`Scanned QR code: ${qrCodeMessage}`);
         }
 
+        // Function to handle scanning errors
         function onScanError(errorMessage) {
-            // Handle errors during scanning
+            // Handle errors during scanning (e.g., log or display error message)
             console.error(errorMessage);
         }
 
+        // Start QR code scanning
         html5QrCode.start(
             { facingMode: "environment" }, // Use the rear camera (if available)
             { fps: 10, qrbox: 250 },       // Optional configurations
-            onScanSuccess,
-            onScanError
+            onScanSuccess,                  // Success callback function
+            onScanError                     // Error callback function
         );
 
         // Stop scanning after 60 seconds (optional)
@@ -89,8 +122,6 @@
                 console.error(err);
             });
         }, 60000);
-
-
     </script>
 </body>
 

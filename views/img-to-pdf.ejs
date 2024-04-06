@@ -2,64 +2,144 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags for character set and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the website -->
     <title>Multipurpose Website - Catering all purposes!</title>
+    <!-- Bootstrap CSS for styling -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Custom CSS file -->
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/pdfmake.js" integrity="sha512-cXLS4U14Rm+shV7jwsUiq97QCKtYB9tgsxDncZ5j2Emaye4wi/lYWrEK1472KFFykPdHug7L6NBNzGT8s7U1lA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- CSS for Image to PDF functionality -->
+    <link rel="stylesheet" href="css/imgtopdf.css">
+    <!-- PDFMake library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.9/pdfmake.js"
+        integrity="sha512-cXLS4U14Rm+shV7jwsUiq97QCKtYB9tgsxDncZ5j2Emaye4wi/lYWrEK1472KFFykPdHug7L6NBNzGT8s7U1lA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <!-- Favicon for the website -->
     <link rel="icon" type="image/x-icon" href="/logo.webp">
+    <!-- Custom styles for the page -->
+    <style>
+        /* Background color and image */
+        body {
+            background-color: #bcacfe;
+            background-image: linear-gradient(316deg, #a091dd 0%, #bea9d3 74%);
+        }
+
+        /* Button styles */
+        .btn {
+            background-color: #9400d3;
+        }
+
+        .btn:hover {
+            background-color: #8403bc;
+        }
+
+        /* Navbar toggler styles */
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <img src="/logo.webp" alt="Multipurpose Website" width="50" height="50" class="logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/img-to-pdf">Image-PDF</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/url-shortener">URL Shortener</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/qr-scanner">QR Scanner</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/yt-download">YT Downloader</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/password-generator">Password Generator</a>
-                    </li>
-                </ul>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="/">
+                    <img src="/logo.webp" alt="Multipurpose Website" width="50" height="50" class="logo">
+                </a>
+                <!-- Navbar toggler button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <!-- Home link -->
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/home">Home</a>
+                        </li>
+                        <!-- Image to PDF link -->
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/img-to-pdf">Image-PDF</a>
+                        </li>
+                        <!-- Other links -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/url-shortener">URL Shortener</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/qr-scanner">QR Scanner</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/yt-download">YT Downloader</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/password-generator">Password Generator</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Logout button -->
+                <div class="d-flex">
+                    <a href="/logout" class="btn me-2 text-white">Logout</a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
     <!-- Navbar End -->
-    <h1>Image to PDF Converter</h1>
-    <input type="file" id="imageInput" accept="image/*" multiple onchange="showPreview()">
-    <div id="preview"></div>
-    <button onclick="convertToPDF()">Convert to PDF</button>
-    <div id="output"></div>
 
+    <!-- Main Start -->
+    <div class="container container-page-height d-flex align-items-center justify-content-center">
+        <div class="d-flex align-items-center justify-content-center flex-column">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="fw-bold text-white">Image to PDF Converter</h1>
+            </div>
+            <!-- Card for conversion -->
+            <div class="card d-flex align-items-center justify-content-center flex-column p-5">
+                <!-- Input container for selecting images -->
+                <div class="input-container">
+                    <label for="imageInput" class="form-label">Choose Images:</label>
+                    <input class="form-control" type="file" id="imageInput" accept="image/*" multiple
+                        onchange="showPreview()">
+                </div>
+
+                <!-- Container for Convert button and output display -->
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn text-white" onclick="convertToPDF()">Convert to PDF</button>
+                        </div>
+                        <div class="col">
+                            <div id="output"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Preview area for selected images -->
+            <div id="preview" class="image-grid"></div>
+        </div>
+    </div>
+    <!-- Main End -->
+
+    <!-- JavaScript for functionality -->
     <script>
+        // PDF content object
         let pdfContent = {
             content: []
         };
 
+        // Function to show selected image preview
         function showPreview() {
             const input = document.getElementById('imageInput');
             const preview = document.getElementById('preview');
@@ -71,13 +151,25 @@
             Array.from(input.files).forEach(file => {
                 const reader = new FileReader();
                 reader.onload = function (e) {
+                    const imageItem = document.createElement('div');
+                    imageItem.classList.add('image-item');
+
                     const thumbnail = document.createElement('img');
                     thumbnail.src = e.target.result;
                     thumbnail.classList.add('thumbnail');
                     thumbnail.addEventListener('click', function () {
-                        removeThumbnail(thumbnail, e.target.result);
+                        removeThumbnail(imageItem, e.target.result);
                     });
-                    preview.appendChild(thumbnail);
+
+                    const removeBtn = document.createElement('button');
+                    removeBtn.innerHTML = '&times;'; // Close icon
+                    removeBtn.addEventListener('click', function () {
+                        removeThumbnail(imageItem, e.target.result);
+                    });
+
+                    imageItem.appendChild(thumbnail);
+                    imageItem.appendChild(removeBtn);
+                    preview.appendChild(imageItem);
 
                     pdfContent.content.push({
                         image: e.target.result,
@@ -89,14 +181,16 @@
             });
         }
 
-        function removeThumbnail(thumbnail, imageDataUrl) {
+        // Function to remove image thumbnail from preview
+        function removeThumbnail(imageItem, imageDataUrl) {
             const preview = document.getElementById('preview');
-            preview.removeChild(thumbnail);
+            preview.removeChild(imageItem);
 
             // Remove the corresponding image from pdfContent
             pdfContent.content = pdfContent.content.filter(image => image.image !== imageDataUrl);
         }
 
+        // Function to convert selected images to PDF
         function convertToPDF() {
             const output = document.getElementById('output');
             const preview = document.getElementById('preview');
@@ -113,6 +207,7 @@
             }
         }
 
+        // Function to generate PDF
         function generatePDF(pdfContent) {
             const options = {
                 image: { quality: 0.5 }, // Adjust image quality
@@ -123,9 +218,15 @@
 
             pdfMake.createPdf({ ...pdfContent, ...options }).getBlob((blob) => {
                 const pdfData = URL.createObjectURL(blob);
-                output.innerHTML = `<a href="${pdfData}" download="output.pdf">Download PDF</a>`;
+                output.innerHTML = `<a href="${pdfData}" class="btn text-white" download="output.pdf">Download PDF</a>`;
             });
         }
     </script>
+
+    <!-- JavaScript libraries for functionality -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

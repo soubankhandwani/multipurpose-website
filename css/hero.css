@@ -23,8 +23,9 @@
   /* Opera 12+ */
   animation: bg-scrolling-reverse 0.92s infinite;
   animation-timing-function: linear;
-  min-height: 50vh;
+  min-height: 88vh;
 }
+
 
 .title-text {
   font-size: 3.25rem;
