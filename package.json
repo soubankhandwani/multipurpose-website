@@ -4,7 +4,8 @@
   "main": "server.js",
   "scripts": {
     "devStart": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "npm run compile-server && npm run compile-assets"
   },
   "author": "",
   "license": "ISC",
