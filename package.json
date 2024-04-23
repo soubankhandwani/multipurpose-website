@@ -5,7 +5,7 @@
   "scripts": {
     "devStart": "nodemon server.js",
     "start": "node server.js",
-    "build": "npm run compile-server && npm run compile-assets"
+    "build": "node build --output public"
   },
   "author": "",
   "license": "ISC",
