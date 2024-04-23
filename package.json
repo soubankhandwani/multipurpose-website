@@ -5,7 +5,7 @@
   "scripts": {
     "devStart": "nodemon server.js",
     "start": "node server.js",
-    "build": "echo 'No build step specified'" // Assuming there's no specific build step for your project
+    "build": "echo 'No build step specified'"
   },
   "author": "",
   "license": "ISC",
